@@ -7,10 +7,19 @@ const inlineStyleMap = {
   RED: {
     color: 'red'
   },
+  BLUE: {
+    color: 'blue'
+  },
+  GREEN: {
+    color: 'green'
+  },
+  BOLD: {
+    fontWeight: 'bold'
+  },
   ITALIC: {
     fontStyle: 'italic'
   }
-}
+};
 
 function blockAttrFn(contentBlock) {
   switch(contentBlock.getType()) {

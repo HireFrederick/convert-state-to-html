@@ -1,12 +1,17 @@
 import { Entity } from 'draft-js'
 import { getEntityRanges } from 'draft-js-utils'
-import { h1, p, span, a } from './elements/index.js'
+import * as elements from './elements'
 
 const blockElementMap = {
-  'header-one': h1,
-  'p': p,
-  'unstyled': p,
-}
+  'header-one': elements.h1,
+  'header-two': elements.h2,
+  'header-three': elements.h3,
+  'header-four': elements.h4,
+  'header-five': elements.h5,
+  'header-six': elements.h6,
+  'p': elements.p,
+  'unstyled': elements.p
+};
 
 class HTMLGenerator {
   constructor(contentState, { inlineStyleMap, blockAttrFn }) {
@@ -50,7 +55,7 @@ class HTMLGenerator {
 
   applyEntity(element, entity) {
     if (entity) {
-      return a({attrs: { href: entity.data.url }, content: element })
+      return elements.a({attrs: { href: entity.data.url }, content: element })
     } else {
       return element
     }
@@ -58,7 +63,7 @@ class HTMLGenerator {
 
   elementWithStyle(text, style) {
     if (Object.keys(style.toObject()).length > 0) {
-      return span({ style: this.getInlineStyles(style), content: text })
+      return elements.span({ style: this.getInlineStyles(style), content: text })
     } else {
       return text
     }
