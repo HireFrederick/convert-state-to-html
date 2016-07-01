@@ -1,6 +1,6 @@
 {
   "name": "convert-state-to-html",
-  "version": "0.0.7-alpha1",
+  "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
